@@ -99,14 +99,14 @@ let change = []
 let changeSum = 0
 
 /* Main loop to find monthly changes in the profits/ */
-for (let i=1; i<finances.length; i++) {
+for (let i=0; i<finances.length; i++) {
     /* Sums up individual profits/losses to total variable */
     total = total + finances[i][1]
     /* For the first iteration, the change is not recorded as it would not have a previous value to refer to. */
     if (i>0) {
     /* Records individual monthly changes into an array */
     change.push(finances[i][1] - finances[i-1][1])
-    }
+    
 
     /* Set maxLoss variable (greatest decrease in profits) to the smallest figure observed */
         if  ((finances[i][1] - finances[i-1][1]) < maxLoss){
@@ -117,11 +117,12 @@ for (let i=1; i<finances.length; i++) {
         if  ((finances[i][1] - finances[i-1][1]) > maxProfit){
             maxProfit = finances[i][1] - finances[i-1][1]
         }
+    }
 }
 
 
 /* Sums up indiviudual monthly changes */
-for (let i=1; i<change.length; i++){
+for (let i=0; i<change.length; i++){
     changeSum = changeSum + change[i]
 }
 
